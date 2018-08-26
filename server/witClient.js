@@ -9,7 +9,7 @@ module.exports = function witClient(token){
 
         request.get('https://api.wit.ai/message')
             .set('Authorization', 'Bearer ' + token)
-            .query({v: '20180820'})
+            .query({v: '20180827'})
             .query({q: message})
             .end((err,res) => {
                 if(err) return cb(err);
