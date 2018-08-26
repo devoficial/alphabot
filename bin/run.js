@@ -1,5 +1,4 @@
 'use strict';
-
 const config = require('../config');
 const slackClient = require('../server/slackClient');
 const service = require('../server/service');
