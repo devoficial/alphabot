@@ -11,7 +11,7 @@ function handleOnAuthenticated(rtmStartData) {
 }
 
 function handleOnMessage(message) {
-    if(message.text.toLowerCase().includes('runsms')){
+    if(message.text.toLowerCase().includes('alpha')){
         nlp.ask(message.text,(err,res) => {
             if(err){
                 console.log(err)

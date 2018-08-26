@@ -1,15 +1,14 @@
 'use strict';
-require('dotenv').config();
+
+const config = require('../config');
 const slackClient = require('../server/slackClient');
 const service = require('../server/service');
 const http = require('http');
 const server = http.createServer(service);
 
- 
 
-
-const witToken = process.env.WIT_TOKEN;
-const slackToken = process.env.SLACK_TOKEN;
+const witToken = config.witToken;
+const slackToken = config.slackToken;
 
 
 const slackLogLevel = 'verbose';
