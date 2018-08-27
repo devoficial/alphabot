@@ -19,6 +19,6 @@ rtm.start();
 
 slackClient.addAuthenticatedHandler(rtm, () => server.listen(3010));
 
-server.on('listening', function() {
+server.on('listening', ()=> {
     console.log(`Alphabot is listening on ${server.address().port} in ${service.get('env')} mode.`);
 });
