@@ -1,14 +1,18 @@
-'use strict'
+'use strict';
 const request = require('superagent');
 
 function handleWitRes(res){
     return res.entities;
 }
-module.exports = function witClient(token){
-    const ask = function ask(message, cb){
+
+class WitClient{
+    constructor(token){
+        this._token = token;
+    }
+    ask(message, cb){
 
         request.get('https://api.wit.ai/message')
-            .set('Authorization', 'Bearer ' + token)
+            .set('Authorization', 'Bearer ' + this._token)
             .query({v: '20180827'})
             .query({q: message})
             .end((err,res) => {
@@ -17,9 +21,7 @@ module.exports = function witClient(token){
                 if(res.statusCode !== 200) return cb('expected status 200 but got : ' + res.statusCode);
                 const witRes = handleWitRes(res.body);
                 return cb(null, witRes);
-            })        
-    }
-    return {
-        ask: ask,
+            });      
     }
 }
+module.exports = WitClient;
