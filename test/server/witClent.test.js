@@ -15,8 +15,9 @@ describe('WitClient',() => {
                 res.intent[0].value.should.equal('time');
                 res.location[0].value.should.equal('Berlin');
                 
-                return done();
+                
             });
+            return done();
         });
     });
 });
