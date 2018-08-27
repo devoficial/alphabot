@@ -1,5 +1,5 @@
 {
-  "name": "iris",
+  "name": "alpha",
   "version": "1.0.0",
   "description": "",
   "main": "server/service.js",
@@ -7,6 +7,13 @@
     "test": "NODE_ENV=test eslint bin server && nyc mocha --recursive test",
     "compile": "babel bin server test --out-dir .compiled --source-maps --watch",
     "start": "node bin/run.js"
+  },
+  "engines":{
+    "node":"9.11.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devoficial/alphabot.git"
   },
   "author": "",
   "license": "ISC",
