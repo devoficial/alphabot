@@ -1,5 +1,6 @@
 'use strict';
 const config = require('../config');
+const log = config.log();
 const SlackClient = require('../server/slackClient');
 const service = require('../server/service');
 const http = require('http');
@@ -12,11 +13,11 @@ const slackToken = config.slackToken;
 const WitClient = require('../server/witClient');
 const witClient = new WitClient(witToken);
 
-const slackClient = new SlackClient(slackToken, config.slackLogLevel,witClient);
+const slackClient = new SlackClient(slackToken, config.slackLogLevel,witClient,log);
 slackClient.start(() => {
     server.listen(3010);
 });
 
 server.on('listening', ()=> {
-    console.log(`Alphabot is listening on ${server.address().port} in ${service.get('env')} mode.`);
+    log.info(`Alphabot is listening on ${server.address().port} in ${service.get('env')} mode.`);
 });

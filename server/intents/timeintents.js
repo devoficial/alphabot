@@ -1,7 +1,8 @@
-'use strict'
+'use strict';
 const request = require('superagent');
+const log = require('../../config/index').log();
 module.exports.process = function process(intentData, cb){
-    if(intentData.intent[0].value  !== "time")
+    if(intentData.intent[0].value  !== 'time')
         return cb(new Error(`Expected time intent, got ${intentData.intent[0].value}`));
     if(!intentData.location)
         return cb(new Error('Missing location in time intent'));
@@ -10,8 +11,8 @@ module.exports.process = function process(intentData, cb){
     
     request.get(`http://localhost:3010/service/${location}`,(err,res) => {
         if(err || res.statusCode !== 200 || !res.body.result) {
-            console.log(err);
-            console.log(res.body)
+            log.error(err);
+            log.info(res.body);
             
             return cb(false, `I had a problem in finding time in ${location}`);
         }
@@ -20,4 +21,4 @@ module.exports.process = function process(intentData, cb){
        
     });
 
-}
+};

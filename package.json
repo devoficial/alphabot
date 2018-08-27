@@ -4,14 +4,15 @@
   "description": "",
   "main": "server/service.js",
   "scripts": {
-    "test": "nyc mocha --recursive test",
+    "test": "NODE_ENV=test eslint bin server && nyc mocha --recursive test",
     "compile": "babel bin server test --out-dir .compiled --source-maps --watch",
-    "start":"node bin/run.js"
+    "start": "node bin/run.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@slack/client": "^3.6.0",
+    "bunyan": "^1.8.12",
     "dotenv": "^6.0.0",
     "express": "^4.14.0",
     "moment": "^2.22.2",
