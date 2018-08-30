@@ -5,7 +5,7 @@ module.exports = {
             script: 'bin/run.js',
             env_production: {
                 NODE_ENV: 'production',
-                alphaUrl: 'http://18.188.169.23:3010'
+                alphaUrl: 'http://35.160.143.122:3010'
             }
         }
     ],
