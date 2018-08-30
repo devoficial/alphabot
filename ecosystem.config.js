@@ -13,9 +13,10 @@ module.exports = {
         production: {
             user: 'dev',
             host: ['18.188.169.23'],
-            ref: 'dev/master',
+            ref: 'new/master',
             repo: 'https://github.com/devoficial/alphabot.git',
             path: '/srv/production',
+            'ssh_options': 'StrictHostKeyChecking=no',
             'post-deploy': 'cp ../.env ./ && npm install && pm2 startOrRestart ecosystem.config.js --env production'
         }
     }
