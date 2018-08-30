@@ -15,7 +15,9 @@ const witClient = new WitClient(witToken);
 
 const slackClient = new SlackClient(slackToken, config.slackLogLevel,witClient,log);
 slackClient.start(() => {
-    server.listen(3010);
+
+    const alphaUrl = process.env.alphaUrl ? process.env.alphaUrl : 3010; 
+    server.listen(alphaUrl);
 });
 
 server.on('listening', ()=> {
