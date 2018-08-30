@@ -11,6 +11,7 @@ module.exports = {
     ],
     deploy: {
         production: {
+            key:'~/.ssh/authorized_keys',
             user: 'dev',
             host: ['18.188.169.23'],
             ref: 'new/master',
