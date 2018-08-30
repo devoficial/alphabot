@@ -4,7 +4,8 @@ module.exports = {
             name: 'ALPHABOT',
             script: 'bin/run.js',
             env_production: {
-                NODE_ENV: 'production'
+                NODE_ENV: 'production',
+                alphaUrl: 'http://18.188.169.23:3010'
             }
         }
     ],
